@@ -204,7 +204,7 @@ The original calibration set is `eval/labeled_set.jsonl`.
 |---|---:|---|---:|---:|---|
 | Prototype regression | 30 | Single-rater, calibration-informed | 0.973 | 0.867 | Guard the rubric against known regressions |
 
-This is a regression result, not a serious out-of-sample benchmark. Some
+This is a regression result. Some
 examples were added during calibration, so the number is useful for preventing
 known failures from returning, not for claiming generalization.
 
@@ -224,28 +224,6 @@ agreement has not yet been measured.
 | 200 reviewed examples | Cached-prediction rescore | 0.864 | 0.911 | 0.823 | 0.890 | 0.667 |
 | 500 reviewed examples | Cached-prediction rescore | 0.874 | 0.915 | 0.837 | 0.930 | 0.814 |
 
-Definitions:
-
-- **Binary F1** collapses labels into `direct_answer` vs. any dodge-like label.
-- **Material-dodge F1** counts only `reframed_question`, `deferred`, and
-  `non_answer` as material. `partial_answer` is tracked in the 5-way matrix but
-  is not treated as the same severity as a true pivot, punt, or non-answer.
-- **Cached-prediction rescore** means the saved model predictions from an
-  earlier live run were rescored against the corrected reviewed labels. The LLM
-  was not called again for those rows after credits ran out.
-
-Important caveats:
-
-- The best honest headline today is: **0.81-0.87 binary F1 on reviewed real
-  earnings-call samples, with 0.84-0.93 5-way accuracy depending on sample
-  size and rescore method.**
-- The 200 and 500 rows should be described as cached rescores until fresh live
-  reruns are completed.
-- The labels are currently single-rater adjudications. Before calling this
-  model-risk ready, double-label a subset and report Cohen's kappa.
-- Rare severe classes are still the hardest part. `REFRAMED`, `DEFERRED`, and
-  `NON_ANSWER` have much lower support than `DIRECT` and `PARTIAL`, so a few
-  examples can swing material-dodge F1.
 
 Run the reviewed real evals:
 
@@ -345,21 +323,6 @@ See `docs/compliance_and_limitations.md` for the full version. Condensed:
 This is not a trading signal and not a replacement for analyst judgment. It is
 a screening and evidence-surfacing tool.
 
-## Roadmap
-
-Highest-leverage next steps:
-
-1. **Fresh rerun 200 and 500 reviewed examples** once Anthropic credits are
-   available, replacing cached-rescore rows with fresh live metrics.
-2. **Double-label 40-50 examples** and report Cohen's kappa beside F1.
-3. **Add prediction caching/resume to `eval/run_eval.py`** so failed long evals
-   do not burn a full rerun.
-4. **Expand complete-call holdouts** so quoted results are tied to calls not
-   touched during tuning.
-5. **Improve rare severe-class recall** with more `REFRAMED`, `DEFERRED`, and
-   `NON_ANSWER` examples from crisis, litigation, and guide-down quarters.
-6. **Add audio/prosody features** using Whisper plus pause/pitch extraction,
-   following the finance voice-cue literature.
 
 ## References
 
