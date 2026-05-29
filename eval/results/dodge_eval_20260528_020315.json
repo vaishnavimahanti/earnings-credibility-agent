@@ -1,0 +1,311 @@
+{
+  "timestamp": "2026-05-28T02:03:15.993025",
+  "n_examples": 25,
+  "accuracy": 0.88,
+  "binary_dodge": {
+    "true_positive": 18,
+    "false_positive": 1,
+    "false_negative": 0,
+    "true_negative": 6,
+    "precision": 0.947,
+    "recall": 1.0,
+    "f1": 0.973
+  },
+  "per_class": {
+    "deferred": {
+      "precision": 1.0,
+      "recall": 0.667,
+      "f1": 0.8,
+      "support": 3
+    },
+    "direct_answer": {
+      "precision": 1.0,
+      "recall": 0.857,
+      "f1": 0.923,
+      "support": 7
+    },
+    "non_answer": {
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.857,
+      "support": 3
+    },
+    "partial_answer": {
+      "precision": 0.9,
+      "recall": 1.0,
+      "f1": 0.947,
+      "support": 9
+    },
+    "reframed_question": {
+      "precision": 0.667,
+      "recall": 0.667,
+      "f1": 0.667,
+      "support": 3
+    }
+  },
+  "confusion_matrix": {
+    "deferred": {
+      "deferred": 2,
+      "direct_answer": 0,
+      "non_answer": 0,
+      "partial_answer": 0,
+      "reframed_question": 1
+    },
+    "direct_answer": {
+      "deferred": 0,
+      "direct_answer": 6,
+      "non_answer": 0,
+      "partial_answer": 1,
+      "reframed_question": 0
+    },
+    "non_answer": {
+      "deferred": 0,
+      "direct_answer": 0,
+      "non_answer": 3,
+      "partial_answer": 0,
+      "reframed_question": 0
+    },
+    "partial_answer": {
+      "deferred": 0,
+      "direct_answer": 0,
+      "non_answer": 0,
+      "partial_answer": 9,
+      "reframed_question": 0
+    },
+    "reframed_question": {
+      "deferred": 0,
+      "direct_answer": 0,
+      "non_answer": 1,
+      "partial_answer": 0,
+      "reframed_question": 2
+    }
+  },
+  "avg_confidence": 0.892,
+  "examples": [
+    {
+      "ticker": "AAPL",
+      "question": "Can you give us a sense for the sequential growth in iPhone units in greater China and what you'd attribute that to?",
+      "answer": "In greater China iPhone units grew 7% sequentially. The drivers were the launch timing of the iPhone 15 Pro Max and stronger trade-in dynamics during the quarter. We also saw a meaningful uptick in up",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "META",
+      "question": "How should we think about Reality Labs operating losses for full year 2024 versus 2023, and what's the trajectory beyond",
+      "answer": "We continue to expect Reality Labs operating losses to increase meaningfully year-over-year in 2024 as we invest in next-generation hardware and Horizon. Beyond 2024 we're not providing specific guida",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "TSLA",
+      "question": "When do you expect the Cybertruck to be gross margin positive on a unit basis?",
+      "answer": "Look, the Cybertruck is going to be an incredible product. We're seeing demand that exceeds anything we've launched before. The vehicle has a stainless steel exoskeleton, bulletproof glass, and capabi",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "NVDA",
+      "question": "What's your data center revenue split between training and inference workloads in the quarter?",
+      "answer": "We don't break out training versus inference specifically, but I can tell you both are growing rapidly. Inference is becoming an increasingly large portion of our data center business as enterprises m",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "GOOGL",
+      "question": "Can you quantify the headcount reduction impact on opex going into the back half of the year?",
+      "answer": "I'll defer the specific quantification to our IR team for follow-up. What I can say is that we expect the savings to be reflected progressively over the next several quarters.",
+      "ground_truth": "deferred",
+      "predicted": "deferred",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "AMZN",
+      "question": "How are you thinking about AWS operating margin durability given the magnitude of capex coming in?",
+      "answer": "AWS continues to be a phenomenal business. Our customer relationships are deeper than ever, and the AI opportunity in front of us is unprecedented. Customers are signing multi-year deals at record rat",
+      "ground_truth": "reframed_question",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": false
+    },
+    {
+      "ticker": "MSFT",
+      "question": "What was the Copilot attach rate within your Office 365 commercial base at quarter end?",
+      "answer": "We're not disclosing the specific attach rate at this time. What I will tell you is that we exited the quarter with more than 70% of the Fortune 500 having deployed Copilot in some capacity, and our s",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "JPM",
+      "question": "Given the trajectory of NII, do you still feel comfortable with the full year guide of $90 billion?",
+      "answer": "Yes, we're holding to the $90 billion NII guide for the full year. Our forward path on deposit beta is tracking close to our expectations, and the trading book NII has been a tailwind that more than o",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "NFLX",
+      "question": "Can you give us a sense of the contribution from the ad-supported tier to ARPU in your top three markets?",
+      "answer": "We're really pleased with the ad tier. We surpassed 40 million monthly active users globally, which is well ahead of where we thought we'd be at this point. The team has been executing incredibly well",
+      "ground_truth": "reframed_question",
+      "predicted": "reframed_question",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "WMT",
+      "question": "What was your e-commerce contribution margin in the U.S. segment for the quarter?",
+      "answer": "U.S. e-commerce was profitable on a contribution margin basis for the second consecutive quarter. We're not disclosing the specific basis points, but the improvement was driven by higher density in ou",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "What inning are we in on credit normalization for the consumer card book?",
+      "answer": "We think we're in the later innings of normalization. Net charge-offs in card ticked up to 3.7%, which is roughly in line with our pre-pandemic average. Forward indicators including 30-day delinquenci",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "DIS",
+      "question": "Can you walk us through the cadence of the $7.5 billion cost reduction by remaining buckets?",
+      "answer": "We're on track to deliver the $7.5 billion in annualized savings by the end of fiscal 2024. The remaining buckets are split roughly evenly between content production efficiency and SG&A. We'll provide",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "INTC",
+      "question": "Are you still committed to the foundry breakeven by 2027 target?",
+      "answer": "We remain on track for foundry breakeven by 2027. We've made significant progress on the Intel 18A node, which is now in risk production, and we've signed three additional external customers since our",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "PFE",
+      "question": "What's the timeline for the GLP-1 oral asset to enter pivotal trials?",
+      "answer": "Our oral GLP-1 program is one of the most exciting things in our pipeline. The data we've seen so far is highly competitive, and we believe we have a real shot at being best-in-class in the oral space",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "XOM",
+      "question": "What was the Permian production exit rate for the quarter?",
+      "answer": "Permian production exited the quarter at approximately 660,000 barrels of oil equivalent per day. That's up from 620,000 at the end of last quarter, driven by the Pioneer integration and continued wel",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "CRM",
+      "question": "How much of the current quarter cRPO outperformance was Data Cloud versus the rest of the platform?",
+      "answer": "Data Cloud was a meaningful contributor to cRPO this quarter. We had eight figures of net new ARR from Data Cloud alone, and we're seeing strong attach rates across our installed base.",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ORCL",
+      "question": "Can you bridge the gap between the $80 billion fiscal 2026 revenue target and current trajectory?",
+      "answer": "We're highly confident in the $80 billion target. The OCI capacity coming online over the next 18 months, combined with the AI training workloads we've already signed, gives us extraordinary visibilit",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "QCOM",
+      "question": "What share of Samsung Galaxy S25 do you expect to win versus Exynos?",
+      "answer": "We don't comment on share splits with specific customers. What I can say is that our content in the S25 family is meaningful and reflects the strength of our Snapdragon roadmap. Customer feedback has ",
+      "ground_truth": "deferred",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "T",
+      "question": "Is the dividend coverage ratio still your binding constraint for capital allocation in 2025?",
+      "answer": "We're comfortable with our current dividend level, and our capital allocation framework hasn't changed. We're focused on deleveraging, investing in fiber and 5G, and returning capital to shareholders.",
+      "ground_truth": "reframed_question",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "NEE",
+      "question": "How much of your 2025 EPS guidance is contingent on production tax credit transferability remaining intact?",
+      "answer": "Production tax credits are an important part of our economics, and we have not assumed any change to current law in our 2025 guidance. If there were changes, we would update guidance accordingly. I'll",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BA",
+      "question": "What's the 737 MAX production rate exit at year end?",
+      "answer": "We're not providing a specific exit rate target at this time. Our focus remains on stabilizing the production system, working through the master change process, and prioritizing quality. We'll update ",
+      "ground_truth": "deferred",
+      "predicted": "deferred",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "UBER",
+      "question": "What was the take rate in Delivery this quarter and how should we think about the trajectory?",
+      "answer": "Delivery take rate was 18.4% in the quarter, up 60 basis points year-over-year. The improvement was driven by advertising attach rates and continued growth in grocery and retail, which carry higher ma",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "GS",
+      "question": "How should we model the Marcus runoff in net interest income?",
+      "answer": "The platform solutions business continues to be deemphasized. We're focused on our core franchise of investment banking, markets, and asset and wealth management. Our return on equity has improved mea",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "COST",
+      "question": "When should we expect the next membership fee increase?",
+      "answer": "We typically raise fees every five to six years, and the last increase was in 2017. We've talked about this being a question of when, not if. The board will make that decision when the time is right. ",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CVX",
+      "question": "What's the latest on the Hess arbitration timeline?",
+      "answer": "We expect the arbitration panel to convene in the second quarter of next year. We're confident in our position and look forward to presenting our case. We won't speculate on outcomes or specific dates",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "name": "aapl_fq4_2024_calibration_baseline",
+  "description": "Focused replay set for AAPL FQ4 2024-style calibration failures: courtesy-pair cleanup, primary-question doctrine, standing disclosure boundaries, and true punts. These are snippets, not a full transcript.",
+  "source_note": "Derived from AAPL FQ4 2024 call cases observed during parser/classifier calibration.",
+  "cases": [
+    {
+      "id": "china-demand-with-stimulus-subquestion",
+      "question": "What are you seeing from a demand perspective in China? And could the recent stimulus plan be a catalyst going forward?",
+      "answer": "China was relatively flat year over year, with sequential improvement. Our installed base is at an all-time high, we're the top two smartphones in urban China, and we saw a strong percentage of new-to-iPhone customers. On the stimulus, it's a clear focus of the team there, but I'm not an economist and don't want to ad lib on its impact.",
+      "allowed_labels": [
+        "direct_answer"
+      ],
+      "why": "Primary demand question is answered with concrete metrics; stimulus is a secondary speculative add-on."
+    },
+    {
+      "id": "component-pricing-directional-color",
+      "question": "Can you help us understand your view of component prices and whether you still see those as tailwinds to gross margins and how sustainable that tailwind might be?",
+      "answer": "Most commodities are going to move down in price, while NAND and DRAM increased during the September quarter and we expect them to increase during the December quarter. We reached a record gross margin this quarter and will manage costs carefully.",
+      "allowed_labels": [
+        "direct_answer",
+        "partial_answer"
+      ],
+      "why": "CFO gives named drivers and two-quarter directional color; do not treat lack of long-range sustainability forecast as a severe dodge."
+    },
+    {
+      "id": "services-growth-no-forecast",
+      "question": "Can Apple Intelligence help the Services growth rate?",
+      "answer": "From an ecosystem point of view, more engagement drives more App Store activity, more transactions, and developer adoption of our APIs has been strong. We don't forecast a specific Services growth-rate impact, but the ecosystem flywheel is clearly reinforced.",
+      "allowed_labels": [
+        "direct_answer",
+        "partial_answer"
+      ],
+      "why": "Declining a specific growth-rate forecast is normal disclosure discipline when substantive ecosystem detail is provided."
+    },
+    {
+      "id": "tariff-explicit-punt",
+      "question": "How is Apple prepared to deal with potential tariffs post-election?",
+      "answer": "I wouldn't want to speculate about those sorts of things. And so, I'm going to punt on that one.",
+      "allowed_labels": [
+        "deferred",
+        "non_answer"
+      ],
+      "why": "Executive explicitly punts the primary question."
+    },
+    {
+      "id": "ai-attribution-enthusiasm-pivot",
+      "question": "Guiding for mid- to low-single-digit growth doesn't sound like alarm bells. What are people missing analytically here?",
+      "answer": "I could not be more excited about Apple Intelligence. The features are incredible, customer emails have been wonderful, and the Mac lineup is the strongest ever. I tune out the noise.",
+      "allowed_labels": [
+        "reframed_question",
+        "non_answer"
+      ],
+      "why": "Question asks about investor interpretation of guidance; answer pivots to enthusiasm and product narrative."
+    },
+    {
+      "id": "legal-matter-refusal",
+      "question": "How do you look at potential outcomes from the ongoing search distribution case and Apple's role in that ecosystem?",
+      "answer": "I don't want to speculate on that from a legal point of view. It's an ongoing case, and I will save that for another day.",
+      "allowed_labels": [
+        "deferred",
+        "non_answer"
+      ],
+      "why": "Legal refusal is explicit and is the whole response to the primary ask."
+    },
+    {
+      "id": "r-and-d-forward-ratio-reframed",
+      "question": "Does this new era of Apple Intelligence require Apple to invest more in R&D beyond the current 7% to 8% of sales?",
+      "answer": "We've made significant investments over a number of years, and you may not see the full extent of it because we've also had internal reallocation of the engineering resources we have within the company.",
+      "allowed_labels": [
+        "reframed_question",
+        "partial_answer"
+      ],
+      "why": "Question asks about forward R&D intensity; answer discusses historical investment and reallocation."
+    },
+    {
+      "id": "capex-framework-no-forward-range",
+      "question": "Could you talk about the CapEx outlook and whether investments in Private Cloud Compute could change the historical CapEx range of roughly $10 billion a year?",
+      "answer": "We use a hybrid model for data centers. Some capacity is owned and some is provided by third parties, so our CapEx numbers may not be fully comparable with others. You will see in our 10-K the amount of CapEx incurred during fiscal 2024, and in fiscal 2025 we will continue to make the investments necessary for the business.",
+      "allowed_labels": [
+        "direct_answer",
+        "partial_answer"
+      ],
+      "why": "Borderline: substantive framework plus historical filing reference, but no forward range. DIRECT/PARTIAL acceptable; severe dodge is not."
+    },
+    {
+      "id": "language-rollout-timeline-no-percent",
+      "question": "How much of the global installed base of phones will have access to Apple Intelligence in their native language over the next year or two?",
+      "answer": "US English is available now. In December we will add localized English for the UK, Australia, Canada, New Zealand, and South Africa. We will add more languages in April and then more as we step through the year. We have not set the specifics yet for every language.",
+      "allowed_labels": [
+        "direct_answer"
+      ],
+      "why": "Concrete rollout timing answers primary access question even without installed-base percentage."
+    },
+    {
+      "id": "iphone-mix-constrained-too-early",
+      "question": "Are you seeing any change in consumer behavior on the mix front within the iPhone series?",
+      "answer": "It's tough to answer because we've been constrained in October on Pro and Pro Max. The data we have so far is early, and it is too early in the curve to call the precise mix. We will have a better read as supply normalizes.",
+      "allowed_labels": [
+        "direct_answer"
+      ],
+      "why": "Current-state read plus supply-constraint explanation is a direct answer, not a dodge."
+    }
+  ]
+}

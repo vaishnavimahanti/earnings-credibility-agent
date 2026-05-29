@@ -1,0 +1,1490 @@
+{
+  "timestamp": "2026-05-28T15:27:27.674531",
+  "n_examples": 150,
+  "accuracy": 0.54,
+  "binary_dodge": {
+    "true_positive": 18,
+    "false_positive": 53,
+    "false_negative": 10,
+    "true_negative": 69,
+    "precision": 0.254,
+    "recall": 0.643,
+    "f1": 0.364
+  },
+  "per_class": {
+    "deferred": {
+      "precision": 0.5,
+      "recall": 0.333,
+      "f1": 0.4,
+      "support": 3
+    },
+    "direct_answer": {
+      "precision": 0.873,
+      "recall": 0.566,
+      "f1": 0.687,
+      "support": 122
+    },
+    "non_answer": {
+      "precision": 0.75,
+      "recall": 0.857,
+      "f1": 0.8,
+      "support": 7
+    },
+    "partial_answer": {
+      "precision": 0.089,
+      "recall": 0.235,
+      "f1": 0.129,
+      "support": 17
+    },
+    "reframed_question": {
+      "precision": 0.062,
+      "recall": 1.0,
+      "f1": 0.118,
+      "support": 1
+    }
+  },
+  "confusion_matrix": {
+    "deferred": {
+      "deferred": 1,
+      "direct_answer": 0,
+      "non_answer": 1,
+      "partial_answer": 1,
+      "reframed_question": 0
+    },
+    "direct_answer": {
+      "deferred": 0,
+      "direct_answer": 69,
+      "non_answer": 1,
+      "partial_answer": 40,
+      "reframed_question": 12
+    },
+    "non_answer": {
+      "deferred": 0,
+      "direct_answer": 1,
+      "non_answer": 6,
+      "partial_answer": 0,
+      "reframed_question": 0
+    },
+    "partial_answer": {
+      "deferred": 1,
+      "direct_answer": 9,
+      "non_answer": 0,
+      "partial_answer": 4,
+      "reframed_question": 3
+    },
+    "reframed_question": {
+      "deferred": 0,
+      "direct_answer": 0,
+      "non_answer": 0,
+      "partial_answer": 0,
+      "reframed_question": 1
+    }
+  },
+  "avg_confidence": 0.847,
+  "eval_track": "real_heldout",
+  "eval_stage": "real_heldout",
+  "eval_caveat": "Real held-out eval result. Confirm roster was not used during prompt tuning.",
+  "labeled_path": "eval/heldout_150.jsonl",
+  "milestones": [
+    {
+      "track": "sample_regression",
+      "stage": "sample_25",
+      "target_examples": 25,
+      "target_calls": "sample/calibration examples",
+      "status": "measured",
+      "purpose": "Initial prototype regression guard"
+    },
+    {
+      "track": "sample_regression",
+      "stage": "sample_50",
+      "target_examples": 50,
+      "target_calls": "sample/calibration examples",
+      "status": "planned",
+      "purpose": "Larger calibration regression set; still not a real held-out benchmark"
+    },
+    {
+      "track": "real_heldout",
+      "stage": "real_50",
+      "target_examples": 50,
+      "target_calls": "~4 unseen calls",
+      "status": "planned",
+      "purpose": "First small real held-out smoke test"
+    },
+    {
+      "track": "real_heldout",
+      "stage": "real_150",
+      "target_examples": 150,
+      "target_calls": "~12 unseen calls",
+      "status": "planned",
+      "purpose": "First credible out-of-sample estimate"
+    },
+    {
+      "track": "real_heldout",
+      "stage": "real_300",
+      "target_examples": 300,
+      "target_calls": "~24 unseen calls",
+      "status": "planned",
+      "purpose": "Sector and quarter coverage; tighter false-positive estimates"
+    },
+    {
+      "track": "real_heldout",
+      "stage": "real_500",
+      "target_examples": 500,
+      "target_calls": "~40 unseen calls",
+      "status": "planned",
+      "purpose": "Model-risk-ready eval with double-label subset and holdout discipline"
+    }
+  ],
+  "examples": [
+    {
+      "ticker": "ABBV",
+      "question": "And so maybe a question -- a bigger question for Rick. So AbbVie -- when we talk to investors, AbbVie has always been 1 ",
+      "answer": "Okay. This is Rick. So it's a good question. We've obviously heard that question. I think there's a number of dynamics that play into it. when you look at our R&D expense as a profile. One is, obvious",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "I guess, I just wondered, high level, if there was anything different, Rick, or Rob, about your approach to guidance on ",
+      "answer": "Okay. So maybe I'll start and then Rob can fill in anything that I might miss. I think whenever we look at guidance, we look at it and I think this has been our historical practice. We obviously look ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Just 2 for me. Maybe just following up on the 2023 guidance being a trough number. It seems like you're still going to h",
+      "answer": "Chris, this is Rick. Let me talk a little bit about HUMIRA and the trough. We're 2 weeks into the biosimilar activity. So it's a little difficult to give you precise predictions or 2024. I think the w",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "First question is on neuro in the quarter. It's actually weaker than we thought. So was there any additional pressure on",
+      "answer": "Yes. I'll take the first one, it's Jeff. Thanks for the question. No, we did not see material incremental pressure on the gross to net -- we did see a little softening versus our expectation on the ov",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Maybe to come back to aesthetics. It does sound like you built in conservatism on a number of fronts. I wanted to also -",
+      "answer": "Carrie, why don't you touch on the aesthetics question. Yes. So your question around China and I'd say China is our second largest global business. It has demonstrated significant growth in the past f",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "The low end of 2023 guidance implies 22% EPS erosion, the high end of Q1 guidance assumes 21% EPS erosion. How is it pos",
+      "answer": "So Steve, so I think the best way is 1 anchor on the guidance we gave you on U.S. HUMIRA today. So we said for the first quarter, we said it would be 27% erosion. And so -- and that's going to -- the ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "I'm going to torch you with a couple more questions on the same subject as others. The U.S. HUMIRA erosion guidance of m",
+      "answer": "So Tim, on your question related to price and volume. The way to think about it is in the first half of the year, the 27% in the first quarter, is the vast majority of that is price, right? So there i",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "So, if you hit the minus 37% this year which is your guidance for U.S. HUMIRA, the rate of erosion in '24 would be great",
+      "answer": "So we're not going to give you a 2024 guidance, Tim. I think the way to think about '24 is we would expect to see additional price but albeit not at the same level as '23 and more volume coming throug",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "You previously commented about the operating margin trajectory of '23 into '24. I believe characterizing them is basical",
+      "answer": "Chris, this is Rob. I'll take your first question. I think for modeling purposes, I would expect operating margins stay roughly at this level in '24 and then begin expanding again in with our return t",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "For all the helpful color so far. So maybe a broader question just with regards to HUMIRA biosimilars. I just I'm curiou",
+      "answer": "Yes, I'll take the one on the immunology marketplace. I think that the impact overall in the category for net price would be modest. And I think a lot of it has to do what Tom and I've discussed befor",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Trung [ph] from Credit Suisse. Two, if I may. So I was just wondering on your thoughts more broadly on the pricing dynam",
+      "answer": "Yes. Thanks for the question. I'll take the first one there in terms of the EU. We do see some movement there, particularly in the, let's say, industry tax and I'll comment on the so-called VPaaS [ph]",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "I appreciate all the perspective on guidance. I just had a follow-up on it. Rick, on your comments on the HUMIRA scale f",
+      "answer": "So I think on the HUMIRA tail, just to maybe clarify what I said is I would expect that as we move through 2024 then in 2025 and 2026, we would start to see a more stable tail for HUMIRA. In other wor",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "It was great with all the color you've given. I just had some -- I want to follow up on, you mentioned Vitiligo. With th",
+      "answer": "On vitiligo, maybe Jeff and I will tag team on it. I would certainly say a topical has a place but it is difficult for people that have large areas of their bodies that are impacted by something like ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Great. Thanks so much. Just my question is really centered around Humira. And I know you \u2013 appreciate some of the access",
+      "answer": "Okay, Chris, this is Rick. I\u2019ll cover part of that question, and then I\u2019ll have Jeff fill in on any additional commentary around the contracting. I think first, if we talk about the 45%, plus or minus",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Yes. Thanks, Jeff. I\u2019ll give some context. So the next step here after PRAC would be moving to the CHMP here in November",
+      "answer": "And Chris, to that point, I mean, this is largely consistent with what we see from oral surveillance and the Xeljanz label, which is widely sort of understood by the European physicians. And so to cut",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Thank you. I was under the impression that we\u2019d get more granularity on Humira erosion this quarter, and you\u2019re saying t",
+      "answer": "Yes, Tim, this is Rick. I\u2019ll cover that one. So, I think we\u2019ve talked a number of times on these calls about what we project in the third quarter call, and I believe what we said is that we would ulti",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Great, thanks for taking my question. And maybe one more question on the contracting side. Could you help us understand ",
+      "answer": "Jeff, do you want to cover that? Yes, so look, in terms of what Rick had highlighted in terms of our confidence in projecting the 80%. Obviously, there\u2019s a couple components to that. So we have \u2013 whil",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Hi, thanks for taking the questions. Maybe two for me. Rick, I appreciate your comments on 2023 and the aesthetics busin",
+      "answer": "Okay, excellent. Thanks, Terence. I\u2019ll cover the first one. So if I look at the aesthetics business, we\u2019re clearly seeing this economic pressure in the U.S. And I would expect that we will see that to",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Hey, this is Neil Gallagher. I will take the epco question. So the first thing I just want to caution, put a word of cau",
+      "answer": "Thanks Terence. Operator, next question please.",
+      "ground_truth": "non_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Thank you. A couple of questions please. First on in Imbruvica, I'm assuming that Imbruvica is going to be included in t",
+      "answer": "Yes. Hi Andrew, it's Jeff. I'll take your \u2013 I'll take your first question. So when we \u2013 obviously we're still studying very carefully the IRA and we're also discussing directly with CMS not just throu",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Hi, it's Roopal. Thanks for the question. Maybe I'll go and then Jeff can talk about the opportunity. You're correct, th",
+      "answer": "Yes. Steve, and just in terms of your salesforce question, I mean, we are very encouraged and excited about this potential approval. I mean, obviously we continue to gain share week-by-week sequential",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Thanks. Good morning. First could you just provide some more color on how much of a benefit you're seeing for Skyrizi an",
+      "answer": "Jeff? Yes. I'll take the IBD question. I think we've mentioned before that the IBD has been a very important part of our long range plan and when we gave the 2025 guidance, it looks relatively small b",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Hey, good morning. Thanks for taking the questions. So first on CF, you recently posted an updated clinical trials for y",
+      "answer": "Well, this is Tom, I\u2019ll answer the CF question. Again, this is very challenging to actually make that abnormal CF protein get to the membrane and act as a chloride channel, and it takes three differen",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Yes, apologies. Two questions, if I may. On Rinvoq, you had previously commented that you were seeing some use in the fi",
+      "answer": "Chris, it\u2019s Jeff. Just to clarify in terms of your Rinvoq question, was there a specific question related to a certain indication on the front line? Or I\u2019m not sure I fully appreciate that one.",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "ABBV",
+      "question": "Hey guys. Thanks so much for taking the question. I just have one quick one. Rick, lots of questions on Humira for next ",
+      "answer": "So I\u2019m actually going to have Jeff walk you through that. He\u2019s probably the closest to that environment. Yes, so thank you for the question. I mean, one of the things that we see certainly in the near",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Hi. Thanks very much. Need a little more help, you gave a lot, but I need a little more help on NII for 2023. You walked",
+      "answer": "Glenn, I\u2019ll start with just -- just by way of context, obviously. We\u2019re coming off a period with historic inflows for pandemic deposits. And now in Q4, we\u2019re beginning to see the impact of quantitativ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "Fair enough. I feel bad for all of us. Maybe a quick one on credit. Good to see charge-offs down given everything that\u2019s",
+      "answer": "Yes. So, you\u2019re aware, the main driver there is commercial real estate. And it\u2019s specifically around about $1 billion of it is office. Obviously, there\u2019s a significant amount of change going on in off",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Thank you. Alastair, on the loan loss reserving and Brian just talked about the adverse case being about 40%. Can you gu",
+      "answer": "Don\u2019t disclose that. You might assume that there\u2019s a fair amount. There are three components to this. One is what the model say, two is basically uncertain in precision and other things we overlay and",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Very good, Brian. And then when you look at your deposit behavior of the consumer, the past cycles, is there any materia",
+      "answer": "I think -- when you look at that higher-end consumer, not really, they move to when the rate in the market yields money market funds, we move them to it, and it\u2019s part of what we do. And that sort of ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Just quickly, Brian, just when you look at the high net worth and corporate, did that move from 0% to 3% Fed funds, for ",
+      "answer": "Well, I mean, I can\u2019t say definitively, but you\u2019ve seen -- that\u2019s what we showed you on those pages where we show the stable -- the account balances are relatively stable in wealth management in the f",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "I guess, Alastair, I guess, no good deed goes unpunished. I mean, NII did grow 21% for the year 2022. It did grow 7% lin",
+      "answer": "Yes. So Mike, if I go back to six months ago, quarter two earnings, what we said at the time was we thought over the course of the next six months, NII might go up by $1.8 billion, $1.85 billion. In a",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "It\u2019s like the first half of your round of golf, you played well, you should have just stopped after then, I guess. But, ",
+      "answer": "On the first thing, Mike, you -- it was something I was going to pick up on earlier to the first question. You picked up it going to the point -- we will have growth in NII year-over-year in the range",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "And then, the last part of the income statement -- or the EPS is simply your excess capital, which you highlighted, it s",
+      "answer": "We\u2019ve always said that the first desire is always to support business growth, and that\u2019s what we\u2019ve been doing. We then -- we\u2019re well above our minimums. We\u2019re on a path to close out the requirement f",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Alastair, I know we\u2019re asking you to predict a lot of things here. Just thinking about the credit and the pace of normal",
+      "answer": "Yes. So, we\u2019re not going to look too far into the future, John. But if you look at our 90 days past due in the credit card data that we show you every quarter, that tends to give you a pretty good lea",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Okay. And you touched on this a little bit on Brian\u2019s comments, but just on loan growth, what are you guys thinking abou",
+      "answer": "Yes. So, we said we\u2019re quite open for business in the fourth quarter, and that remains the case. Brian covered the capital point. We had to do what we had to do in the third quarter. We did it. We\u2019ve ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "I just had one compound clarifying question. The first is, Brian, did you, in response to Mike\u2019s question on NII, bless ",
+      "answer": "I think, I\u2019ll put all those questions together in one answer. If you go the page that\u2019s in the report where we sort of say, look at the difference between the consumer business in \u201819 and now. And it\u2019",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "Just to clarify, Brian, you mentioned the plateauing of NII and then, hopefully, all the investments in the business wil",
+      "answer": "The scenario of rate cuts and rate rises, we basically use blue chips. So, I\u2019m not sure. It depends on what\u2019s causing that. So if it\u2019s a normalization of the rate curve back to say, 3% at front end, 4",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "I wanted to follow up, Alastair. You had about $800 million of incremental interest income from the securities book. And",
+      "answer": "Yes. So most of the increase in securities portfolio, we\u2019re not really reinvesting in there at this point as the securities portfolio started declining. We\u2019re using the money that\u2019s throwing off to pu",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "Maybe just on NII. I think there's a lot of uncertainty around deposit behavior, betas, what the catch-up rate could be ",
+      "answer": "Thanks\u2026",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Assuming forward curve is realized? Sorry.",
+      "answer": "Yes. Yes. So the short answer is yes, we believe so. And we believe that really for three reasons. The first one is, we still expect for future rate hikes and there's going to be some lag to their imp",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Okay. And then maybe as a follow-up, you guys have done a pretty great job on hedging AOCI risk and the AFS book. My und",
+      "answer": "Just the way our own ALM projected over the course of the next couple of years, we had some forward starting swaps. Those are going to pay us floating in the fourth quarter, and that's a contributor t",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "I just wanted to ask a question about expenses. I think part of various theses on the stock is that various investors ex",
+      "answer": "So Erika, we continue to invest heavily along multiple dimensions, people, technology restructuring all the physical plant, marketing. And so -- but yes, through the core operational excellence, disci",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "Got it. And my second question is on more significant buyback activity, Brian. I think that the CET1 build is certainly ",
+      "answer": "So we bought back shares this quarter and still grew the capital. Our job is to drive our company to serve our customers in that first order of business for our capital has always helped the growth in",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "I'm curious, you -- as your capital build was -- thanks to RWA mitigation, you mentioned no loss days in the quarter des",
+      "answer": "So there's a couple of things that are going on there. I don't want to confuse them. Let me first talk about the leverage financing. That we just marked through our numbers. It's in the numbers. We pu",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "It was awesome. I appreciate that. And I guess, very much related, you've just touched on it a little bit. But I'm curio",
+      "answer": "Glenn, look, we always say to ourselves and what our teammates is that responsible growth across the last decade plus leads us to where we are. And so you're not going to do anything like this afterno",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "I wanted to ask about the NII assumptions and maybe just your outlook around loan growth and what you're seeing in the e",
+      "answer": "Well, on the loan side, I'd say we talked about at the beginning of the year that we thought loans would be high single digits, and we've slightly outperformed that, obviously. This quarter was a litt",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "And in terms of funding the gap between the loan growth and flattish deposits, securities came down a fair amount this q",
+      "answer": "Yes. So the securities portfolio runs off at about $15 billion a quarter. It was a little more this quarter because we actually had an opportunity to sell some securities that offset some gains, some ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "Okay. If I could just clarify the discussion with Erika around expenses. The $61 billion this year includes the litigati",
+      "answer": "Yes, I think we said at. Yes, it includes the litigation. And the next year, we said, yes, basically -- yes, this year includes litigation. The next year, we said at some point, we'll get back to the ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "I'd like a little bit more detail on how you add employees and resources for the additional revenues. From the second qu",
+      "answer": "So I think, Mike, that's a lot of questions, but I'll try to sort out a little bit. Start with the last. There is no terminal efficiency ratio. Our idea is when you work on expenses, you're not workin",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "BAC",
+      "question": "And then just a quick follow-up then. So Brian, you said before, the NII benefits have come barreling through to the ben",
+      "answer": "Yes. That's -- we said it last quarter and I hope that proved it true there to what you asked about last quarter. one thing Mike to think about is, go back and look at the consumer page in the deck, y",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "BAC",
+      "question": "And then one quick follow-up. Just I ask this for someone else if they didn't really know. The consumer deposit betas ar",
+      "answer": "The consumer -- if you go to the page on deposits, there's only one -- there's a distinguishing fact that goes on a consumer at our company and generally, which really drives up the tremendous value p",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Thanks so much, and definitely appreciate all these outlooks. They are very helpful. So my question on the outlook is if",
+      "answer": "Yes, sure. Good morning, Glenn, thanks for the question. So we did give you some guidance here we gave it to you both on the top line and the middle line for \u201823. And then importantly, when we talk ab",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "I appreciate that. Thank you. Just one quick follow-up on poly, not my norm, but I normally try to respect this type of ",
+      "answer": "I appreciate that, Glenn, and Citi is an important firm. I\u2019m the CFO of this firm and this strategy is something that I\u2019m focused on with Jane, ensuring that we execute on right and in a way that crea",
+      "ground_truth": "partial_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hi, Mark. I wanted to dig into the revenue outlook for 2023. You\u2019ve got about the midpoint, it kind of implies about a 4",
+      "answer": "Sure. So let me make a comment first on the NII. Just keep in mind with that number that I\u2019ve given on the page is both the growth that occurs in some of our important services businesses, and that re",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Okay. And then \u2013 sorry, if this is clear already. But just in terms of the idea of the cost curve bending at the end of ",
+      "answer": "I\u2019m not going to kind of get into \u201824 guidance. We will kind of get through \u201823, and I\u2019m confident about our ability to get to that roughly 54 number that I put out for \u201823. I\u2019m equally confident that",
+      "ground_truth": "partial_answer",
+      "predicted": "deferred",
+      "confidence": 0.95,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "My first question is \u2013 again, thank you for all the clarification on the slide. Great job, Jane and Mark, obviously. But",
+      "answer": "Yes. So at Investor Day, we did talk about it, and we remain consistent and committed to that. We talked about getting to an efficiency ratio that\u2019s less than 60% in the medium-term period. And so tha",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Thank you. And Mark, I\u2019m sorry, for misspeaking. I was looking at the wrong borrowing efficiency. I have like 15 slides ",
+      "answer": "That\u2019s okay,",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "The second question and maybe this to you Jane, I think that your investors have appreciated your sense of urgency with ",
+      "answer": "So we\u2019re in active dialogue at the moment. So I\u2019m obviously not going to comment in great detail here. We do continue to pursue a dual path as you\u2019d expect, because both are very viable options here. ",
+      "ground_truth": "deferred",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. I\u2019m still trying to get over at this revenue and expense guidance. So you\u2019re implying you\u2019ll have at a minimum flat ",
+      "answer": "Mike, when you do the math, I don\u2019t think it will get to the positive operating leverage in 2023. But we are, as you see on the slide, targeting a range that does reflect growth in the top line. That ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Okay. And then a second follow-up \u2013 or a follow-up, and then I\u2019ll requeue for my other question. Your CET1 ratio is 13% ",
+      "answer": "I\u2019m going to jump in on the, don\u2019t sell Banamex, Mike. As you could imagine, so we are selling the consumer franchise. It does not fit with the strategy that we laid out in Investor Day. It\u2019s an emerg",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hey, good morning. I guess just one question as a follow-up on capital. As we think about post the second half of the ye",
+      "answer": "Yes. So look, as we pointed out, we\u2019ve built a significant amount of capital over the course of the year. We are ahead of the target we set for the middle of the year, middle of the year. We do have s",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Got it. And just back to your medium-term targets. I guess if we hit that bending the curve at the end of \u201824, it implie",
+      "answer": "The only thing I\u2019d point out is what we\u2019ve described \u2013 what I\u2019ve described, what Jane described is the medium term is \u201824 through 2026. And \u2013 we\u2019ve given you guidance for \u201823. We intend to get to thos",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "I did want to ask a little bit about the strategy with Personal and Wealth Management. I know Jane, earlier you talked a",
+      "answer": "Great question, Betsy. And Mark and I are both smiling here because I think the answer is all of the above. So if we break it down, where do we see the various elements of upside? There is an importan",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "And would you say that the investment spend required to execute on those revenue opportunities is likely to accelerate f",
+      "answer": "I think look, in this current environment, as we have said \u2013 Mark and I have both said since the \u2013 really, the middle of last year, this is something that we are pacing, but we are continuing to inves",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. Good morning. Mark, I was hoping that maybe you could unpack the guidance for 2022 a little bit more. It seems like ",
+      "answer": "Yes. Thank you, John. Good morning to you. As you said, we have seen the benefit certainly in the quarter here of the pickup in rates. And certainly, all indicators are that the rate increases will li",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Okay. And then, maybe as a follow-up, just remind us where you are on net interest income sensitivity. You've updated th",
+      "answer": "Sure. So, important to kind of just level set, John, great question. We got to think there are a couple of drivers that kind of come into play when we think about the sensitivity. So, one is obviously",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Mark, I wonder if you could just elaborate on the headwinds in noninterest revenue within PBWM and Retail Services. It s",
+      "answer": "Sure. Let me take the first -- take them in that order. So, on the Retail Services side, it has nothing to do with kind of an extension of a contract or anything like that. What I'm describing is that",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.9,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "My first question is actually a follow-up to John's question, Mark. I think that it's always been more challenging to fo",
+      "answer": "There's a lot there. But I mean, I think what I'd say is a couple of things. One is, we've obviously seen a rapid increase in rates. And that -- the speed at which rates increases matters a lot as it ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Thank you. And just my follow-up question is that was really an impressive capital build this quarter, particularly sinc",
+      "answer": "Yes. I guess, let me kind of answer it in a more fulsome way, if you don't mind, and then I'll certainly make sure that I give you a sense for the contribution of what we expect from divestitures to t",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "I'm trying to figure out if you're lucky or smart, and the reason I say that is at your Investor Day, I mean, right upfr",
+      "answer": "So, why don't I kick off and then I'll pass it to Mark. And it's a danger here of how long you have, Mike, because there's a lot to talk about. So, I would encourage you to sit at the beach this weeke",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Just a follow-up on the RWA. When you talk about the premium of the $3.5 billion and -- can you help us just discern bet",
+      "answer": "Thank you. The $3.5 billion I referenced is all capital. So, all numerator impact is what I'm describing. It's both, the -- any premium that we get or impact, gain from sale as well as the RWA that we",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "I guess just around capital, Mark, just a two-part question. One, are we -- am I hearing you right that you're not going",
+      "answer": "Yes. Sure. So look, I mean, we are obviously going to take it quarter by quarter as it relates to buybacks and from a capital point of view. Again, without going through all of the things that reflect",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "One more capital question. So, on slide 8, you do give the medium-term outlook here for what you see as your long-term g",
+      "answer": "Yes. Look, I mean, the 11.5 to 12 is consistent with what we talked about at Investor Day. And the medium term, as you know, Betsy, for us is three to five years. We've got a couple of things that we'",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.82,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "So, I had a follow-up question for Mark on NII. As the Fed continues down the path of balance sheet normalization, I jus",
+      "answer": "On the first point, when I think about the back half of the year in quantitative tightening, I do expect that we will see some continued deposit growth, as I mentioned earlier. The pressure from quant",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Can you elaborate on your comment about why the Russia exposure is kind of less of a risk or it's a better mix than it w",
+      "answer": "Sure. So, look, what we've been doing very actively since the beginning of the year and certainly in the quarter as well, has been working -- we've been working to bring down our exposure in Russia an",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Mark, can you share with us -- both of you addressed in your opening remarks about the impact the market conditions had ",
+      "answer": "Maybe I kick off and then pass it over to Mark. Look, strategic advice is central to the vision to being the preeminent banking partner for multinational firms. We are continuing to strategically inve",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Jane, a question for you on Mexico. Given the comments of the Mexican President, would that limit the price that a buyer",
+      "answer": "Oh, Vivek, I'm not going to answer your question. But I'll give you a few comments on Mexico nonetheless. So, we're pleased with the interest in our Mexican franchise based on the discussions with the",
+      "ground_truth": "direct_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hi, there, how are you? Okay. So when I first looked at the reserve release, even including the $1.9 million Russian res",
+      "answer": "Glenn, [why don\u2019t] [ph] I kick off and I\u2019ll pass it to Mark. So you are absolutely right. We had taken a rather conservative approach to releasing our COVID-related reserves in the U.S. Personal Banki",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "I just wanted to ask you a question, Jane and Mark on CET1. And wanted to make sure we get your investors get the messag",
+      "answer": "Thank you. You got a lot there, that we\u2019ve got to unpack. So I\u2019ll try to capture it all and you\u2019ll point to whatever I may miss. But let\u2019s start with the beginning of your question, just kind of the 1",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. Could you talk some about Treasury and Trade Solutions, both at the first quarter level? I guess, security services ",
+      "answer": "Well, maybe I\u2019ll kick off with a couple of pieces and then hand it over to Mark. I think what we\u2019ve seen, frankly, Mike, across the board this quarter has been the value of our global network that we ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. I was hoping to follow-up on the Russian slide here, update on Russian Slide 6. I guess first question, why don\u2019t yo",
+      "answer": "Sure. Why don\u2019t I take that? So the first thing I\u2019d say is that we\u2019re not at 10, right? So we ended the year last year, 2021 at $9.8 billion. We ended the quarter at $7.8 billion of exposure. So we br",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Mark, you did a good job in describing the CET1 ratio walk for us. What\u2019s new that none of us have experienced yet on an",
+      "answer": "It\u2019s an increase in our risk-weighted assets that\u2019s really tied largely to the derivative exposures that we have. What I would say is, obviously, how one manages their exposures and balance sheet and ",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Just sticking with capital, two-part question. One, if it continued to move higher, Mark, is there anything you can do t",
+      "answer": "Sure. So look, I mean there \u2013 what we have built in \u2013 what we have got built into the forecast and the walk back to 12% is the forward curve as of the end of the quarter. So, that\u2019s what we have built",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "A couple of questions. One, a little bit ticky-picky, but on your NIM sensitivity that you have given the 10-Q, 10-K, it",
+      "answer": "Yes. I don\u2019t have that breakout, Betsy. I mean I \u2013 we will have to kind of get back to you. I don\u2019t have that breakout.",
+      "ground_truth": "deferred",
+      "predicted": "deferred",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi, Mark, Jane, a quick question, probably more for Mark. The RWA increased from the higher volatility that you would ha",
+      "answer": "So, look, in the first quarter, the major driver that we have seen is really on the credit risk side from an RWA point of view, and that was really tied to SACR. That\u2019s the biggest driver of the fourt",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. Good morning. So, it was encouraging certainly to hear you guys reaffirm the \u201822 guidance for low-single digit reven",
+      "answer": "Yes. Look, on the \u2013 let me kind of take that. So, on the revenue side, as you would have heard us describe, there have been puts and takes that have played through the quarter, and there is still a fa",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hey. Good morning Mark and Jane. Maybe just a question on \u2013 just following up with the last question, do you have a spec",
+      "answer": "Yes, sure. Look, I am not giving kind of guidance kind of broken out, if you will, for the revenues. We are standing by the full year guidance that we have talked about. Obviously, with rates moving t",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. Actually, Chubac and Jim asked my question. I think it might be helpful to consider, Mark for next quarter to break ",
+      "answer": "Thanks, Erika.",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. I just wanted to ask about how you are thinking about the U.S. card business. This is an area where it feels like in",
+      "answer": "Yes. I am surprised you thought we were lagging because we don\u2019t \u2013 we certainly don\u2019t see that. I have been really pleased with how the cards franchise has been performing on multiple different driver",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "C",
+      "question": "Hi. Thanks for taking the questions. So, I get the impression that maybe keep you are surprised by your NII guidance bec",
+      "answer": "Sure. And good morning and I would like to separate kind of NII guidance from the IRE sensitivity and disclosure that we have. And so you are absolutely right, and I am not moving \u2013 we are not moving ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "If I have it right, I think your backlog increased by the most in a decade, maybe one of the couple of best order quarte",
+      "answer": "Thanks for your question, Rob. So just in terms of the backlog, the largest backlog increase was actually in Energy & Transportation and as orders continue to strengthen for both solar and for recip o",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Jim, I guess my question, I\u2019ll direct it towards you because it\u2019s with regards to the E&T and you used to run that busin",
+      "answer": "You bet. Oil and gas customers do continue to display capital discipline. However, we are encouraged by the improvement in orders for both recip and solar. As I mentioned earlier, those products tend ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you for the question. Appreciate it. I guess maybe a question for Andrew. Looking to kind of clarify some of your ",
+      "answer": "Yes. So if you\u2019ll recall, I think, fourth quarter, we had about $600 million of price and about $800 million increase in manufacturing costs. Obviously, this quarter was a similar level in manufacturi",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks. Good morning, everybody. Jim, I think in your prepared comments, when you were speaking about Construction Indus",
+      "answer": "Yes, Steve, I believe I mentioned commodity prices being supportive of RI as opposed to CI. But just to talk about CI a bit. Again, we talked about residential, non-residential improving infrastructur",
+      "ground_truth": "partial_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning. Given the last 3 months, it seems like a theme that maybe people would have expected 3 months ago was ",
+      "answer": "Well, thanks for your question, David. And as we\u2019ve been talking about for a couple of years, we\u2019ve been expecting moderate increase over time in mining, and that\u2019s really how it\u2019s played out. Our cus",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Can you update us on your services business? What was the growth in that segment in the quarter? What\u2019s the total dollar",
+      "answer": "You bet. Well, we\u2019re pleased with services growth in the quarter. We released the annual services sales and revenues once a year. And so we will do that in January for full year 2022. Having said that",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "So I just want to go back to your comments about improving orders on the recip and solar side. And I was just hoping you",
+      "answer": "Well, thanks for your question, and we do feel good about our competitive position. Just starting quickly with solar, they have a strong \u2013 they have strong leadership in the market. And we are very pl",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.82,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Just maybe to look at the 2Q outlook and elaborate a little bit. I guess you guys said sales up Q-on-Q and 2Q and that\u2019s",
+      "answer": "I mean the one \u2013 the only small factor that I would raise, and it\u2019s a very small factor, is that obviously, there is $300 million of extra inventories put out by CI very late in the quarter, which wou",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "So Jim, your North American construction, the retail sales growth, it improved quite a bit from Q4 to Q1, but it continu",
+      "answer": "Well, thanks for your question. Firstly, in terms of demand for CI in North America, it is quite strong. And as I mentioned earlier, supply chain challenges prevented us from having even higher sales ",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "I was hoping if we can dig into resources a little bit more. Obviously, sales were much better than we were expecting th",
+      "answer": "Well, we remain positive about mining and continue to see increases in user demand. And again, it\u2019s playing out much as we have been predicting the last couple of years with improving market condition",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hey good morning. I just wanted to ask a question on pricing. I am really just trying to understand how dynamic is the p",
+      "answer": "Yes. The way we characterized it here, yes, we do expect price to more than offset manufacturing cost increases in 2022, and we expect more of an impact of pricing in the second half versus the first ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks. Good morning. So, it seems like you have raised your incentive compensation expectation for 2022. I think that w",
+      "answer": "Yes. So, obviously, as you know, our incentive compensation schemes use a variety of measures, not just operating profit, OPEC, services revenues, and there are other non-financial metrics that are ou",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks. Good morning. So, a lot of good color on the dealer inventories. But I just wanted to ask Andrew, just about Cat",
+      "answer": "Yes. So Tim, I mean obviously, what we have been very clear on is in the situation where we are with the supply chain challenges switching off supply is not probably the best \u2013 it\u2019s not a sensible thi",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Good morning. My question is really on North American construction, where \u2013 I\u2019m curious whether your end users have seen",
+      "answer": "Yes. Rob, we have seen some positive impact of those infrastructure dollars start to flow. The projects that don\u2019t require a lot of permitting, things like of reservicing roads, that kind of activity ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi good morning. Thanks so much for taking my question. Just to clarify the operating margin expectation for the year, I",
+      "answer": "Yes. So Tami, to be clear, and I realized as we were saying it, they could be interpreted in two ways. One, which is could it be the 10% to 21% range. No, that is not what we\u2019re referring to. If you r",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you. The market is worried about dealer destocking and the impact to construction margins. In prior cycles, margin",
+      "answer": "Yes. So certainly, one of the things we\u2019ve done is worked hard on our S&OP process over the last few years to really minimize the impact of that kind of an issue. Firstly, to keep in mind, the way we ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Jim, just the market I think is going to be worried that the performance this quarter is backward-looking. So can you li",
+      "answer": "Yes. Certainly, Jamie. First to answer your first question on backlog, we are encouraged by the very strong backlog that we had, it's flat compared to last quarter, but it's at a very healthy level. A",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Thank you. First, just a clarification. When you speak to the second half of dealer inventory destocking, I know it ",
+      "answer": "Yes. So just to clarify, David, obviously versus last year where we saw an increase. So remind you there's a $700 million increase in both the third and the fourth quarter. We would expect to decrease",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Yes. Okay. I just want to make sure there wasn't something unique the behavioral pattern is to take it down in the secon",
+      "answer": "Yes, correct. Correct.",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Real simple question, 2024, I know lead times in some areas are getting better, some are still challenged. But it does a",
+      "answer": "Yes. It is still too early to certainly predict 2024. As I mentioned, because availability is improving that gives dealers the opportunity for some products to wait a bit longer when they place their ",
+      "ground_truth": "deferred",
+      "predicted": "non_answer",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Yes. Hi. Good morning, Jim, Andrew, Ryan. Thanks for making time. I'm wondering if you could just talk about the margins",
+      "answer": "Yes. Of course, as we serve a variety of industries and there's \u2013 it's not a one size fits all. So we look very carefully at the market conditions and the competitive situation for each product that w",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Great, and good morning everybody. I wanted to go back, Jim, I think I heard you say that you thought North American com",
+      "answer": "What are the key drivers of commercial construction?",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 0.95,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "No, I'm sorry, I understand \u2013 if commercial is only 1% of CI, what's the other 99%?",
+      "answer": "Yes. So we talk a lot about non-residential, and we've talked about the fact that we are quite encouraged by legislation that has passed, whether it's IIJA, the Chips Act the IRA. So again, looking at",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "So a couple of questions. So first, can you comment on your lead times in construction today versus six months ago? And ",
+      "answer": "Yes. So lead times \u2013 so because of easing supply chain constraints in some areas, lead times have improved. We still really have challenges in certain areas. Earthmoving is a great example. We have ch",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Yes. I was going to \u2013 can you just clarify your comment about the second half you talked about destocking some in the se",
+      "answer": "Yes. Back to the comment numbers I said to David earlier, we did have inventory builds in the third and fourth quarters of last year. So you're running against a comparator, which has a build versus a",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "So, thank you for taking my question. And sorry to ask another question about the dealer stocks. But I guess, if demand ",
+      "answer": "Yes. I don't believe that's the case. And again, as I mentioned as availability improves and lead times decrease due to easing supply chain challenges, it's not unusual. And as we looked in the past, ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hello, good morning everybody. I guess I\u2019ll dive in, if I could since its timely, just Jim, how are you seeing the data ",
+      "answer": "Yes, we continue to see strong demand for both our reciprocating engines and our gas turbines, just in conversations with customers. It\u2019s really all about how quickly can you increase capacity for you",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Morning guys. Thanks for taking my question. For dealers, to see the inventory, I think in 2023 machines built $700 mill",
+      "answer": "Yes, so as you correctly point out, we did see a dealer inventory build for machines in 2023. Most of that, actually, was in resource industries rather than construction industries, and in fact most o",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning and thank you. My question is on you have a large and diverse oil and gas business, and I\u2019m wondering i",
+      "answer": "Yes, certainly. We are expecting moderate growth in 2025 for oil and gas in total. For recip, we expect engine services to be slightly down for the year, really driven by gas compression and well serv",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi everybody, thanks for the time. I\u2019m curious - obviously trying to think about margins for \u201925 for the segments, and I",
+      "answer": "Yes David, if you recall, actually in my comments I did call out within CI negative absorption in the fourth quarter as we did reduce CI inventory, so manufacturing costs were also negative in CI. In ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Jim, Andrew, I\u2019m wondering if you could just talk about your solar turbine lead times, and how are you thinking about po",
+      "answer": "Yes, as I mentioned earlier, we\u2019re seeing strong backlog and strong inquiry and order activity for solar, for both power generation and gas compression. We can increase capacity without building new f",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hey, how are you? My question is on the \u201925 operating profit guide. You\u2019re guiding to the top end of the range for a giv",
+      "answer": "Maybe I\u2019ll start and then I\u2019ll kick it over to Andrew. Firstly, I believe what we said is we expect to be in that top half of the range for margins for 2025, and of course our key measure here for our",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning. My question relates to E&T. I guess first, you called out delays in shipments, I think in the fourth q",
+      "answer": "I\u2019ll answer the second part of the question first, and I\u2019ll kick it to Andrew for the first part. As we\u2019ve mentioned, we\u2019re making that investment to increase our capacity in large reciprocating engin",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you, good morning. Andrew, just a very quick clarification on your comments for CI. At least as I heard it, as I u",
+      "answer": "Yes, so obviously normally what you would see in CI is a first quarter benefit on sales and revenues, mainly due to dealer inventory builds. The last couple of years, that\u2019s been around a billion doll",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning. The order growth in the fourth quarter, I\u2019m curious, how did construction and resources orders do sequ",
+      "answer": "Yes, so Tami, overall E&T was the major driver. We did see some improvement in orders in resource industries particularly related to some large contracts that we\u2019ve announced previously; and then in C",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you, good morning. Maybe Andrew, just back to the--you had mentioned within the commentary around CI, the issue of",
+      "answer": "Yes Tim, thanks. I think, as I tried to indicate to David, there are other factors within manufacturing costs which go the other way - absorption will be one of them, slightly going against, obviously",
+      "ground_truth": "partial_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning. Thanks for taking my question. Just wanted to maybe go into the competitive environment a little bit m",
+      "answer": "Yes, so on the merchandising programs, some of that is actually within our control. It\u2019s not just--but obviously our focus is actually growing absolute OPACC dollars, remind you, so we don\u2019t necessari",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.78,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Morning, thank you for the question. I wanted to come back to the margin target guidance coming in at the upper half of ",
+      "answer": "Yes, again as we think about 2025, we\u2019re talking about being in the top half of that range, and so certainly for this year, we\u2019re not anticipating changing it. Again, just as a reminder, as I mentione",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks, good morning. I know it\u2019s still very early to really understand exactly all the policies coming out of the admin",
+      "answer": "Yes, I\u2019ll give that a shot. Certainly it\u2019s going to take time to see how this plays out, there\u2019s certainly a lot of discussions going on around tariffs, and we\u2019ll have to see what actually gets put in",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.82,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Andrew -- hi. I'm wondering if we could just take a step back. Your margin performance this year is really outstanding r",
+      "answer": "Well, Jerry, just as a reminder, our primary measure of profitable growth is increasing absolute OPACC dollars. That's something we're very focused on. Obviously, we're always focused on being competi",
+      "ground_truth": "reframed_question",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Good morning, Team Caterpillar. Hope you're doing well. My question is on the Resource Industries segment. Volumes i",
+      "answer": "Well, thanks for your question. I mean, the full year drop, as we talked about in previous calls, is really primarily due to a couple of products, articulated trucks and off-highway trucks. And we had",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, good morning. Thanks for taking my question. I was wondering if you could expand maybe a little bit...",
+      "answer": "Hi, Angel.",
+      "ground_truth": "non_answer",
+      "predicted": "non_answer",
+      "confidence": 1.0,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Good morning. I was wondering if you could expand a little bit more on what you're hearing from your dealers and custome",
+      "answer": "Yeah. Well, a couple of things. Firstly, in the quarter, as I mentioned earlier, the primary reasons for the decline quarter-to-quarter was based on lower rental fleet loading by our dealers. And, of ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Good morning. And I'm sorry, I'm flipping between multiple calls, but, Jim, I think you said during the prepared rem",
+      "answer": "Thanks for your question, Jamie, and we haven't quantified the amount of capital investment in that capacity increase, but we did talk about the fact that we expect with this incremental investment th",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Thank you. Yeah, looking, as everybody, more bread crumbs for 2025. My question, I guess, two pieces. The comment ab",
+      "answer": "Yeah. Thanks for your question, David. So, one of the things we talked about when we announced the initial investment to increase our large engine capacity is that would increase over a four-year peri",
+      "ground_truth": "partial_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hey, everyone. Thank you for taking my question. I would just love to get a sense of -- on the oil and gas side, obvious",
+      "answer": "So again, I'll resist giving the guidance for 2025, but I'll just give you some color around the industry. Certainly, we mentioned the fact that well servicing continued to be a bit weak. Gas compress",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.82,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Great. Thank you for taking the question. Jim, I wanted to come back to the CI competitive dynamics, particularly in Nor",
+      "answer": "Well, certainly, we're very focused on remaining competitive and the competitive situation continually changes. So, I could -- every year I've been in this job and before that, the competitive situati",
+      "ground_truth": "partial_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks. Good morning. Jim, you mentioned the four-year process on power gen capacity expansion, but the power gen growth",
+      "answer": "Yeah. Just to be -- thanks for your question. Just to be clear, when we ship a generator set to an oil and gas customer or for an oil and gas application, we count that as oil and gas, not power gener",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thanks for taking the question. I was hoping if you could discuss inventories a little bit more. So, this planned reduct",
+      "answer": "Yeah. So, first of all, let me mention on used. As we say, used inventory levels actually remain at pretty low levels based on history. They had ticked up slightly. Obviously, pricing has become a lit",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "I wanted to revisit -- hey. How you guys doing? So I just wanted to revisit the comments about pricing in CI. So first, ",
+      "answer": "Yeah. So, let me just, first of all, come back to the overall. If you actually look at our overall gross margins for the quarter, gross margins were about flat despite low volume. So, we have been abl",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you. Good morning. Jim, I was hoping you could maybe give some color on the backlog and the orders which were pret",
+      "answer": "Yeah. Thanks for your question. So, the backlog increase in Energy & Transportation was quite robust and that more than offset a decrease in backlog for Machines. And of course, it's not surprising th",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Yes. Thank you. And just to follow-up on Tim's question, is there a way to maybe quantify what percentage of the backlog",
+      "answer": "You bet. Generally, overall, the way we think about it is about 75% of our backlog is expected to be sold within 12 months. That's a general number for total. As I mentioned, some of the large engine ",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.92,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "So I was hoping you could unpack a little bit more the price cost dynamics as we look through the second half of the yea",
+      "answer": "Yes. So, overall, so let me start. Obviously, for the full year, price will exceed increases in manufacturing costs. As we look out in the second half of the year, we do expect price to moderate as we",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "I guess my question -- my question pertains to E&T and the E&T margin strength in the quarter. Can you help, I mean, giv",
+      "answer": "Well, thank you, Jamie, for your question. And then as you noted, we are adding capacity to increase our capability to build both large engines and part of those large engines. But it's a multiyear pr",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.82,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Great. Good morning, guys. Thanks for taking the question. Pivoting maybe to Construction Industries. I think you both m",
+      "answer": "Certainly. We're willing to start with this is dealer rental income was actually up for the quarter. And dealers are independent businesses and of course make their own decisions about what kind of ma",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Good morning, everybody. I also wanted to circle around to E&T, where as you see the rise of data centers, I guess, ",
+      "answer": "Thank you, Rob. So to answer the last part of your question first. So on solar, we have seen some pretty interesting applications for solar that you're right, traditionally over the last 30 years. So ",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi. Thank you for the time. I was curious, the retail sales machines, it sounds like you're expecting to be down again i",
+      "answer": "Yes. So let me start and help unpack that a little bit. So on the retail sales, two factors, obviously, retail sales in the quarter, one which was in North America. And most of that was actually renta",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Thank you for taking my question. I'm curious when you look at your different segments, if we're entering a lower intere",
+      "answer": "Maybe I'll start and then I'll kick it over to Andrew just to talk about interest rates a bit. So if you stop and think about our business, there are certain aspects that are not as sensitive to inter",
+      "ground_truth": "direct_answer",
+      "predicted": "direct_answer",
+      "confidence": 0.85,
+      "correct": true
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hi, Jim, Andrew. I'm wondering if you could just talk about what your prospect list looks like in Resource Industries ba",
+      "answer": "Thanks for your question, Jerry. As I mentioned earlier, there's a lot of positives in mining. Certainly, the utilization of our equipment is high. The number of parked trucks is relatively low. We ex",
+      "ground_truth": "direct_answer",
+      "predicted": "reframed_question",
+      "confidence": 0.85,
+      "correct": false
+    },
+    {
+      "ticker": "CAT",
+      "question": "Hey, good morning. Thank you so much. So my question is more longer term focused rather than this quarter or year. So ca",
+      "answer": "We do believe. Thanks for your question. We do believe that the data center build-out creates opportunities in many areas across our business. So you mentioned backup generators. That's, obviously, th",
+      "ground_truth": "direct_answer",
+      "predicted": "partial_answer",
+      "confidence": 0.75,
+      "correct": false
+    }
+  ]
+}

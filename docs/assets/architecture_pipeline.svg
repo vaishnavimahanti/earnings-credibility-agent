@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="620" viewBox="0 0 1400 620" role="img" aria-labelledby="title desc">
+  <title id="title">Earnings Call Credibility Agent architecture pipeline</title>
+  <desc id="desc">Step by step architecture from transcript ingestion through feature extraction, dodge classification, retrieval, contradiction detection, scoring, and analyst brief generation.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 34px Arial, sans-serif; fill: #18212b; }
+      .subtitle { font: 400 18px Arial, sans-serif; fill: #5d6b78; }
+      .step { fill: #ffffff; stroke: #d7dee6; stroke-width: 2; rx: 16; }
+      .step-strong { fill: #eef6f9; stroke: #2f7189; stroke-width: 2.5; rx: 16; }
+      .step-title { font: 700 18px Arial, sans-serif; fill: #17212b; }
+      .step-text { font: 400 14px Arial, sans-serif; fill: #5d6b78; }
+      .badge { fill: #2f7189; }
+      .badge-text { font: 700 14px Arial, sans-serif; fill: #ffffff; }
+      .arrow { stroke: #8794a1; stroke-width: 3; fill: none; marker-end: url(#arrowhead); }
+      .lane { fill: #fff7e8; stroke: #d7a04c; stroke-width: 1.5; rx: 14; }
+      .lane-title { font: 700 15px Arial, sans-serif; fill: #8b5a14; }
+      .small { font: 400 13px Arial, sans-serif; fill: #5d6b78; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8794a1" />
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1400" height="620"/>
+  <text class="title" x="54" y="58">Earnings Call Credibility Agent</text>
+  <text class="subtitle" x="54" y="88">Step-by-step pipeline from raw transcript to citation-grounded analyst brief</text>
+
+  <rect class="lane" x="48" y="116" width="1304" height="88"/>
+  <text class="lane-title" x="70" y="147">Input and parsing layer</text>
+  <text class="small" x="70" y="173">Public earnings-call transcript from HuggingFace or local sample. Speaker turns are normalized, Q&amp;A pairs are built, and courtesy closings are filtered before classification.</text>
+
+  <g transform="translate(58 250)">
+    <rect class="step" x="0" y="0" width="176" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">1</text>
+    <text class="step-title" x="54" y="31">Transcript</text>
+    <text class="step-text" x="18" y="64">Load public call</text>
+    <text class="step-text" x="18" y="86">Normalize turns</text>
+    <text class="step-text" x="18" y="108">Pair analyst Q&amp;A</text>
+  </g>
+
+  <path class="arrow" d="M242 311 H292"/>
+
+  <g transform="translate(300 250)">
+    <rect class="step" x="0" y="0" width="176" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">2</text>
+    <text class="step-title" x="54" y="31">Features</text>
+    <text class="step-text" x="18" y="64">Hedging density</text>
+    <text class="step-text" x="18" y="86">Specificity</text>
+    <text class="step-text" x="18" y="108">On-topic score</text>
+  </g>
+
+  <path class="arrow" d="M484 311 H534"/>
+
+  <g transform="translate(542 238)">
+    <rect class="step-strong" x="0" y="0" width="208" height="146"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">3</text>
+    <text class="step-title" x="54" y="31">Dodge Classifier</text>
+    <text class="step-text" x="18" y="64">DIRECT / PARTIAL</text>
+    <text class="step-text" x="18" y="86">REFRAMED / DEFERRED</text>
+    <text class="step-text" x="18" y="108">NON_ANSWER</text>
+    <text class="step-text" x="18" y="130">Evidence + reasoning</text>
+  </g>
+
+  <path class="arrow" d="M758 311 H808"/>
+
+  <g transform="translate(816 250)">
+    <rect class="step" x="0" y="0" width="176" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">4</text>
+    <text class="step-title" x="54" y="31">Retrieval</text>
+    <text class="step-text" x="18" y="64">Index current call</text>
+    <text class="step-text" x="18" y="86">Retrieve prior claims</text>
+    <text class="step-text" x="18" y="108">Prevent leakage</text>
+  </g>
+
+  <path class="arrow" d="M1000 311 H1050"/>
+
+  <g transform="translate(1058 250)">
+    <rect class="step" x="0" y="0" width="176" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">5</text>
+    <text class="step-title" x="54" y="31">Contradictions</text>
+    <text class="step-text" x="18" y="64">Compare same-topic</text>
+    <text class="step-text" x="18" y="86">Judge materiality</text>
+    <text class="step-text" x="18" y="108">Cite prior quarter</text>
+  </g>
+
+  <path class="arrow" d="M1146 380 V432 H404 V392"/>
+
+  <g transform="translate(300 430)">
+    <rect class="step" x="0" y="0" width="200" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">6</text>
+    <text class="step-title" x="54" y="31">Scorer</text>
+    <text class="step-text" x="18" y="64">Dodge distribution</text>
+    <text class="step-text" x="18" y="86">Feature blend</text>
+    <text class="step-text" x="18" y="108">0-100 credibility</text>
+  </g>
+
+  <path class="arrow" d="M508 491 H558"/>
+
+  <g transform="translate(566 430)">
+    <rect class="step-strong" x="0" y="0" width="214" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">7</text>
+    <text class="step-title" x="54" y="31">Analyst Brief</text>
+    <text class="step-text" x="18" y="64">Headline concerns</text>
+    <text class="step-text" x="18" y="86">Flagged Q&amp;A rows</text>
+    <text class="step-text" x="18" y="108">Transcript citations</text>
+  </g>
+
+  <path class="arrow" d="M788 491 H838"/>
+
+  <g transform="translate(846 430)">
+    <rect class="step" x="0" y="0" width="220" height="122"/>
+    <circle class="badge" cx="28" cy="28" r="17"/>
+    <text class="badge-text" x="23" y="33">8</text>
+    <text class="step-title" x="54" y="31">Human Review</text>
+    <text class="step-text" x="18" y="64">Dashboard evidence</text>
+    <text class="step-text" x="18" y="86">Override labels</text>
+    <text class="step-text" x="18" y="108">Grow eval set</text>
+  </g>
+
+  <rect class="lane" x="48" y="568" width="1304" height="28"/>
+  <text class="small" x="70" y="587">Evaluation loop: reviewed labels -> eval/run_eval.py -> confusion matrix, binary F1, material-dodge F1 -> dashboard.html -> calibration tests.</text>
+</svg>

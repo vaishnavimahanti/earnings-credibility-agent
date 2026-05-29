@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+data/chroma/
+data/*.duckdb
+data/raw/
+*.log
+.ipynb_checkpoints/
+.DS_Store
+.langgraph_cache/
+.streamlit/secrets.toml
