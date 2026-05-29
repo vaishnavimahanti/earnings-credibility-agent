@@ -130,49 +130,6 @@ Design choices:
 - **Audit logging.** LLM calls are logged with model, prompt hash, response
   hash, latency, schema, and success state.
 
-## What Is In The Repo
-
-```text
-src/
-  schemas.py              Pydantic schemas for calls, Q&A pairs, labels, briefs
-  llm.py                  Provider-agnostic Anthropic/OpenAI structured client
-  compliance.py           Refusals, audit logging, optional PII redaction
-  features/
-    extractors.py         Hedging, specificity, on-topic, script adherence
-    lm_dictionary.py      Loughran-McDonald finance dictionary features
-  agents/
-    dodge.py              Dodge classifier and deterministic calibration rules
-    retriever.py          Chroma-backed cross-quarter retrieval
-    contradiction.py      Prior-quarter contradiction detector
-    scorer.py             Composite credibility score
-    writer.py             Analyst brief writer
-    orchestrator.py       LangGraph workflow
-  utils/
-    data_loader.py        HuggingFace transcript loading and Q&A pairing
-
-eval/
-  labeled_set.jsonl                       30-example prototype regression set
-  heldout_50_balanced_reviewed.jsonl      Reviewed real eval set
-  heldout_100_balanced_reviewed.jsonl     Reviewed real eval set
-  heldout_200_balanced_reviewed.jsonl     Reviewed real eval set
-  heldout_500_balanced_reviewed.jsonl     Reviewed real eval set
-  run_eval.py                             Metrics, confusion matrix, JSON/MD output
-  dashboard.py                            Static finance-style eval dashboard
-  audit_errors.py                         Misclassification review helper
-  compute_kappa.py                        Cohen's kappa for double labels
-
-scripts/
-  build_sample.py         Build offline sample call
-  build_heldout_set.py    Build held-out CSV/JSONL labeling files
-  replay_calibration.py   AAPL calibration replay harness
-  demo.py                 End-to-end CLI demo
-  ingest.py               Ingest calls for contradiction retrieval
-  backtest.py             Credibility score vs forward return sketch
-
-tests/
-  33 offline tests plus 7 live LLM calibration guards
-```
-
 ## Quickstart
 
 ```bash
