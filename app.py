@@ -1,12 +1,3 @@
-"""
-Streamlit UI for the earnings call credibility agent.
-
-Three-panel layout:
-  - Left:  transcript with dodge highlights
-  - Right: analyst brief
-  - Top:   credibility metrics + timeline
-"""
-
 from __future__ import annotations
 import json
 from datetime import datetime, timezone
