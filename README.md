@@ -18,7 +18,6 @@ directly they answered what analysts actually asked.
 - [The Problem](#the-problem)
 - [The Core Signal](#the-core-signal)
 - [Architecture](#architecture)
-- [What Is In The Repo](#what-is-in-the-repo)
 - [Quickstart](#quickstart)
 - [Run On Real Calls](#run-on-real-calls)
 - [Evaluation Results](#evaluation-results)
